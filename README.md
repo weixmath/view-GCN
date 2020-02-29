@@ -1,5 +1,5 @@
 # view-GCN
-Pytorch code of view-GCN (CVPR2020).
+Pytorch code of view-GCN.
 
-View-GCN: View-based Graph Convolutional Network for 3D Shape Analysis. 
+View-GCN: View-based Graph Convolutional Network for 3D Shape Analysis. (CVPR2020)
 
