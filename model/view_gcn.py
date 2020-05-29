@@ -1,13 +1,9 @@
-from collections import OrderedDict
 import numpy as np
-import os,time
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
-from torch.autograd import Variable
 import torchvision.models as models
 from .Model import Model
-from tools.view_gcn_utils import KNN_dist, View_selector,LocalGCN,NonLocalMP
+from tools.view_gcn_utils import KNN_dist, View_selector, LocalGCN, NonLocalMP
 
 mean = torch.tensor([0.485, 0.456, 0.406],dtype=torch.float, requires_grad=False)
 std = torch.tensor([0.229, 0.224, 0.225],dtype=torch.float, requires_grad=False)
@@ -103,9 +99,9 @@ class view_GCN(Model):
 
         self.LocalGCN1 = LocalGCN(k=4,n_views=self.num_views)
         self.NonLocalMP1 = NonLocalMP(n_view=self.num_views)
-        self.LocalGCN2 = LocalGCN(k=4, n_views=10)
-        self.NonLocalMP2 = NonLocalMP(n_view=10)
-        self.LocalGCN3 = LocalGCN(k=4, n_views=5)
+        self.LocalGCN2 = LocalGCN(k=4, n_views=self.num_views/2)
+        self.NonLocalMP2 = NonLocalMP(n_view=self.num_views/2)
+        self.LocalGCN3 = LocalGCN(k=4, n_views=self.num_views/4)
         self.View_selector1 = View_selector(n_views=20, sampled_view=10)
         self.View_selector2 = View_selector(n_views=10, sampled_view=5)
 
