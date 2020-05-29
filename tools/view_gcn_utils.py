@@ -1,9 +1,6 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as Functional
-from time import time
-import numpy as np
-
 
 def square_distance(src, dst):
     B, N, _ = src.shape
@@ -12,7 +9,6 @@ def square_distance(src, dst):
     dist += torch.sum(src ** 2, -1).view(B, N, 1)
     dist += torch.sum(dst ** 2, -1).view(B, 1, M)
     return dist
-
 
 def index_points(points, idx):
     """
@@ -31,7 +27,6 @@ def index_points(points, idx):
     batch_indices = torch.arange(B, dtype=torch.long).to(device).view(view_shape).repeat(repeat_shape)
     new_points = points[batch_indices, idx, :]
     return new_points
-
 
 def farthest_point_sample(xyz, npoint):
     """
