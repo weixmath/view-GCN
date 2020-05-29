@@ -28,8 +28,8 @@ parser.add_argument("-weight_decay", type=float, help="weight decay", default=0.
 parser.add_argument("-no_pretraining", dest='no_pretraining', action='store_true')
 parser.add_argument("-cnn_name", "--cnn_name", type=str, help="cnn model name", default="resnet18")
 parser.add_argument("-num_views", type=int, help="number of views", default=20)
-parser.add_argument("-train_path", type=str, default="/media/root/SuperDisk/weixin/modelnet40v2png_ori4/*/train")
-parser.add_argument("-val_path", type=str, default="/media/root/SuperDisk/weixin/modelnet40v2png_ori4/*/test")
+parser.add_argument("-train_path", type=str, default="data/modelnet40v2png_ori4/*/train")
+parser.add_argument("-val_path", type=str, default="data/modelnet40v2png_ori4/*/test")
 parser.set_defaults(train=False)
 
 def create_folder(log_dir):
