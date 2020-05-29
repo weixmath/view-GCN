@@ -20,7 +20,7 @@ def seed_torch(seed=0):
     # torch.backends.cudnn.enabled = False
 # os.environ['CUDA_VISIBLE_DEVICES']='2'
 parser = argparse.ArgumentParser()
-parser.add_argument("-name", "--name", type=str, help="Name of the experiment", default="view-gcn-2")
+parser.add_argument("-name", "--name", type=str, help="Name of the experiment", default="view-gcn")
 parser.add_argument("-bs", "--batchSize", type=int, help="Batch size for the second stage", default=20)# it will be *12 images in each batch for mvcnn
 parser.add_argument("-num_models", type=int, help="number of models per class", default=0)
 parser.add_argument("-lr", type=float, help="learning rate", default=1e-3)
@@ -50,10 +50,9 @@ if __name__ == '__main__':
     json.dump(vars(args), config_f)
     config_f.close()
     # STAGE 1
-    # log_dir = args.name+'_stage_1'
-    # create_folder(log_dir)
+    log_dir = args.name+'_stage_1'
+    create_folder(log_dir)
     cnet = SVCNN(args.name, nclasses=40, pretraining=pretraining, cnn_name=args.cnn_name)
-    cnet.load_state_dict(torch.load('/home/weixin/code/View-GCN/view-gcn-2_stage_1/view-gcn-2/model-00014.pth'))
     optimizer = optim.SGD(cnet.parameters(), lr=1e-2, weight_decay=args.weight_decay, momentum=0.9)
     n_models_train = args.num_models*args.num_views
     train_dataset = SingleImgDataset(args.train_path, scale_aug=False, rot_aug=False, num_models=n_models_train, num_views=args.num_views)
@@ -69,7 +68,7 @@ if __name__ == '__main__':
     log_dir = args.name+'_stage_2'
     create_folder(log_dir)
     cnet_2 = view_GCN(args.name, cnet, nclasses=40, cnn_name=args.cnn_name, num_views=args.num_views)
-    cnet.load_state_dict(torch.load('pretrained/model-00015.pth'))
+    #cnet.load_state_dict(torch.load('pretrained.pth'))
     optimizer = optim.SGD(cnet_2.parameters(), lr=args.lr, weight_decay=args.weight_decay,momentum=0.9)
     train_dataset = MultiviewImgDataset(args.train_path, scale_aug=False, rot_aug=False, num_models=n_models_train, num_views=args.num_views,test_mode=True)
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=args.batchSize, shuffle=False, num_workers=0)# shuffle needs to be false! it's done within the trainer
