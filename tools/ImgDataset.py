@@ -1,16 +1,11 @@
 import numpy as np
 import glob
 import torch.utils.data
-import os
-import math
 from PIL import Image
 import torch
-import torchvision as vision
-from torchvision import transforms, datasets
-import random
+from torchvision import transforms
 
 class MultiviewImgDataset(torch.utils.data.Dataset):
-
     def __init__(self, root_dir, scale_aug=False, rot_aug=False, test_mode=False, \
                  num_models=0, num_views=20, shuffle=True):
         self.classnames=['airplane','bathtub','bed','bench','bookshelf','bottle','bowl','car','chair',
@@ -44,7 +39,6 @@ class MultiviewImgDataset(torch.utils.data.Dataset):
             for i in range(len(rand_idx)):
                 filepaths_new.extend(self.filepaths[rand_idx[i]*num_views:(rand_idx[i]+1)*num_views])
             self.filepaths = filepaths_new
-
 
         if self.test_mode:
             self.transform = transforms.Compose([
