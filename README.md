@@ -7,4 +7,4 @@ This code is tested on Python 3.6 and Pytorch 1.0 +
 
 First download the 20 views ModelNet40 dataset and put it under 'data'
 
-The code is heavily borrowed from <https://github.com/jongchyisu/mvcnn_pytorch>.
+The code is heavily borrowed from [mvcnn_new](https://github.com/jongchyisu/mvcnn_pytorch).
