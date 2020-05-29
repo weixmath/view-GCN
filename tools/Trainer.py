@@ -94,17 +94,6 @@ class ModelNetTrainer(object):
                 if val_overall_acc > best_acc:
                     best_acc = val_overall_acc
                 print('best_acc', best_acc)
-            # adjust learning rate manually
-            # if self.model_name == 'svcnn':
-            #     if epoch > 0 and (epoch + 1) == 10:
-            #         for param_group in self.optimizer.param_groups:
-            #             param_group['lr'] = param_group['lr'] * 0.5
-            #     if epoch > 0 and (epoch + 1) == 20:
-            #         for param_group in self.optimizer.param_groups:
-            #             param_group['lr'] = param_group['lr'] * 0.5
-            #     if epoch > 0 and (epoch + 1) == 30:
-            #         for param_group in self.optimizer.param_groups:
-            #             param_group['lr'] = param_group['lr'] * 0.5
         # export scalar data to JSON for external processing
         self.writer.export_scalars_to_json(self.log_dir + "/all_scalars.json")
         self.writer.close()
@@ -117,10 +106,6 @@ class ModelNetTrainer(object):
         samples_class = np.zeros(40)
         all_loss = 0
         self.model.eval()
-        total_time = 0.0
-        total_print_time = 0.0
-        all_target = []
-        all_pred = []
 
         for _, data in enumerate(self.val_loader, 0):
 
