@@ -24,7 +24,7 @@ The code is heavily borrowed from [[mvcnn-new]](https://github.com/jongchyisu/mv
 
 Jong-Chyi Su, Matheus Gadelha, Rui Wang, and Subhransu Maji. A Deeper Look at 3D Shape Classifiers. Second Workshop on 3D Reconstruction Meets Semantics, ECCV, 2018.
 
-We also provide a [trained view-GCN network](https://drive.google.com/file/d/1qkltpvabunsI7frVRSEC9lP2xDP6cDj3/view?usp=sharing) on ModelNet40.
+We also provide a [trained view-GCN network](https://drive.google.com/file/d/1qkltpvabunsI7frVRSEC9lP2xDP6cDj3/view?usp=sharing) achieving 97.6% accuracy on ModelNet40.
 
 
 ## Citation
