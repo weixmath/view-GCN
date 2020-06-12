@@ -33,7 +33,7 @@ First download the 20 views ModelNet40 dataset provided by [[rotationnet]](https
 The code is heavily borrowed from [[mvcnn-new]](https://github.com/jongchyisu/mvcnn_pytorch).
 
 We also provide a [trained view-GCN network](https://drive.google.com/file/d/1qkltpvabunsI7frVRSEC9lP2xDP6cDj3/view?usp=sharing) achieving 97.6% accuracy on ModelNet40.
-
+`https://drive.google.com/file/d/1qkltpvabunsI7frVRSEC9lP2xDP6cDj3/view?usp=sharing`
 ## Reference
 Asako Kanezaki, Yasuyuki Matsushita and Yoshifumi Nishida. RotationNet: Joint Object Categorization and Pose Estimation Using Multiviews from Unsupervised Viewpoints. CVPR, 2018.
 
