@@ -26,7 +26,8 @@ Jong-Chyi Su, Matheus Gadelha, Rui Wang, and Subhransu Maji. A Deeper Look at 3D
 
 # Citation
 If you find our work useful in your research, please consider citing:
-```@InProceedings{Wei_2020_CVPR,
+```
+@InProceedings{Wei_2020_CVPR,
 author = {Wei, Xin and Yu, Ruixuan and Sun, Jian},
 title = {View-GCN: View-Based Graph Convolutional Network for 3D Shape Analysis},
 booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
