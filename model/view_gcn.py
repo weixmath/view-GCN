@@ -99,11 +99,11 @@ class view_GCN(Model):
 
         self.LocalGCN1 = LocalGCN(k=4,n_views=self.num_views)
         self.NonLocalMP1 = NonLocalMP(n_view=self.num_views)
-        self.LocalGCN2 = LocalGCN(k=4, n_views=self.num_views/2)
-        self.NonLocalMP2 = NonLocalMP(n_view=self.num_views/2)
-        self.LocalGCN3 = LocalGCN(k=4, n_views=self.num_views/4)
-        self.View_selector1 = View_selector(n_views=20, sampled_view=10)
-        self.View_selector2 = View_selector(n_views=10, sampled_view=5)
+        self.LocalGCN2 = LocalGCN(k=4, n_views=self.num_views//2)
+        self.NonLocalMP2 = NonLocalMP(n_view=self.num_views//2)
+        self.LocalGCN3 = LocalGCN(k=4, n_views=self.num_views//4)
+        self.View_selector1 = View_selector(n_views=self.num_views, sampled_view=self.num_views//2)
+        self.View_selector2 = View_selector(n_views=self.num_views//2, sampled_view=self.num_views//4)
 
         self.cls = nn.Sequential(
             nn.Linear(512*3,512),
