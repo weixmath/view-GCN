@@ -68,7 +68,6 @@ if __name__ == '__main__':
     log_dir = args.name+'_stage_2'
     create_folder(log_dir)
     cnet_2 = view_GCN(args.name, cnet, nclasses=40, cnn_name=args.cnn_name, num_views=args.num_views)
-    #cnet.load_state_dict(torch.load('pretrained.pth'))
     optimizer = optim.SGD(cnet_2.parameters(), lr=args.lr, weight_decay=args.weight_decay,momentum=0.9)
     train_dataset = MultiviewImgDataset(args.train_path, scale_aug=False, rot_aug=False, num_models=n_models_train, num_views=args.num_views,test_mode=True)
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=args.batchSize, shuffle=False, num_workers=0)# shuffle needs to be false! it's done within the trainer
