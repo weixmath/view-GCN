@@ -10,10 +10,20 @@ This code is tested on Python 3.6 and Pytorch 1.0 +
 
 ## Dataset
 
-First download the 20 views ModelNet40 dataset provided by  and put it under 'data'
+First download the 20 views ModelNet40 dataset provided by [kanezaki](https://github.com/kanezaki/pytorch-rotationnet) and put it under `data`
 
 ## Command for training:
 
 `python train.py -name view-gcn -num_models 0 -weight_decay 0.001 -num_views 20 -cnn_name resnet18`
 
 The code is heavily borrowed from [mvcnn_new](https://github.com/jongchyisu/mvcnn_pytorch).
+
+# Reference
+
+@InProceedings{Wei_2020_CVPR,
+author = {Wei, Xin and Yu, Ruixuan and Sun, Jian},
+title = {View-GCN: View-Based Graph Convolutional Network for 3D Shape Analysis},
+booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+month = {June},
+year = {2020}
+}
