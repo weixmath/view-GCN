@@ -30,6 +30,7 @@ parser.add_argument("-cnn_name", "--cnn_name", type=str, help="cnn model name", 
 parser.add_argument("-num_views", type=int, help="number of views", default=20)
 parser.add_argument("-train_path", type=str, default="data/modelnet40v2png_ori4/*/train")
 parser.add_argument("-val_path", type=str, default="data/modelnet40v2png_ori4/*/test")
+parser.add_argument("-use_trained_view_gcn", dest='use_trained_view_gcn', action='store_true')
 parser.set_defaults(train=False)
 
 def create_folder(log_dir):
@@ -76,4 +77,8 @@ if __name__ == '__main__':
     print('num_train_files: '+str(len(train_dataset.filepaths)))
     print('num_val_files: '+str(len(val_dataset.filepaths)))
     trainer = ModelNetTrainer(cnet_2, train_loader, val_loader, optimizer, nn.CrossEntropyLoss(), 'view-gcn', log_dir, num_views=args.num_views)
-    trainer.train(15)
+    if use_trained_view_gcn:
+        cnet2.load_dict_state(torch.load(trained_view_gcn.pth))
+        trainer.update_validation_accuracy(1)
+    else:
+        trainer.train(15)
