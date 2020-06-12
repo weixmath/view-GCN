@@ -25,6 +25,7 @@ The code is heavily borrowed from [[mvcnn-new]](https://github.com/jongchyisu/mv
 Jong-Chyi Su, Matheus Gadelha, Rui Wang, and Subhransu Maji. A Deeper Look at 3D Shape Classifiers. Second Workshop on 3D Reconstruction Meets Semantics, ECCV, 2018.
 
 We also provide a [trained view-GCN network](https://drive.google.com/file/d/1qkltpvabunsI7frVRSEC9lP2xDP6cDj3/view?usp=sharing) on ModelNet40.
+
 `python train.py -name view-gcn -num_models 0 -weight_decay 0.001 -num_views 20 -cnn_name resnet18 -use_trained_view_gcn`
 
 # Citation
