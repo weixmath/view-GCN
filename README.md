@@ -33,10 +33,15 @@ The code is heavily borrowed from [mvcnn_new](https://github.com/jongchyisu/mvcn
 
 # Reference
 RotationNet: Joint Object Categorization and Pose Estimation Using Multiviews from Unsupervised Viewpoints.
+
 Asako Kanezaki, Yasuyuki Matsushita and Yoshifumi Nishida.
+
 CVPR, 2018
+
 A Deeper Look at 3D Shape Classifiers.
+
 Jong-Chyi Su, Matheus Gadelha, Rui Wang, and Subhransu Maji
+
 Second Workshop on 3D Reconstruction Meets Semantics, ECCV, 2018
 
 
