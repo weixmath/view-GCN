@@ -76,4 +76,7 @@ if __name__ == '__main__':
     print('num_train_files: '+str(len(train_dataset.filepaths)))
     print('num_val_files: '+str(len(val_dataset.filepaths)))
     trainer = ModelNetTrainer(cnet_2, train_loader, val_loader, optimizer, nn.CrossEntropyLoss(), 'view-gcn', log_dir, num_views=args.num_views)
+    #use trained_view_gcn
+    #cnet_2.load_state_dict(torch.load('trained_view_gcn.pth'))
+    #trainer.update_validation_accuracy(1)
     trainer.train(15)
