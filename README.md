@@ -1,6 +1,6 @@
 # Pytorch code for view-GCN.
 
-Xin Wei, Ruixuan Yu and Jian Sun. **View-GCN: View-based Graph Convolutional Network for 3D Shape Analysis**. CVPR, accepted, 2020. [[pdf]](http://gr.xjtu.edu.cn/c/document_library/get_file?folderId=1401787&name=DLFE-129432.pdf)
+Xin Wei, Ruixuan Yu and Jian Sun. **View-GCN: View-based Graph Convolutional Network for 3D Shape Analysis**. CVPR, accepted, 2020. [[pdf]](http://openaccess.thecvf.com/content_CVPR_2020/papers/Wei_View-GCN_View-Based_Graph_Convolutional_Network_for_3D_Shape_Analysis_CVPR_2020_paper.pdf) [[supp]](http://openaccess.thecvf.com/content_CVPR_2020/supplemental/Wei_View-GCN_View-Based_Graph_CVPR_2020_supplemental.pdf)
 
 # Training
 
