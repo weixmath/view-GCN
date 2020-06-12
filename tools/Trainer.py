@@ -25,7 +25,6 @@ class ModelNetTrainer(object):
         i_acc = 0
         self.model.train()
         for epoch in range(n_epochs):
-            # if self.model_name == 'mvcnn':
             if epoch == 1:
                 for param_group in self.optimizer.param_groups:
                     param_group['lr'] = lr
@@ -46,11 +45,10 @@ class ModelNetTrainer(object):
             out_data = None
             in_data = None
             for i, data in enumerate(self.train_loader):
-                # if self.model_name=='mvcnn':
                 if epoch == 0:
                     for param_group in self.optimizer.param_groups:
                         param_group['lr'] = lr * ((i + 1) / (len(rand_idx) // 20))
-                if self.model_name == 'mvcnn':
+                if self.model_name == 'view-gcn':
                     N, V, C, H, W = data[1].size()
                     in_data = Variable(data[1]).view(-1, C, H, W).cuda()
                 else:
@@ -58,8 +56,7 @@ class ModelNetTrainer(object):
                 target = Variable(data[0]).cuda().long()
                 target_ = target.unsqueeze(1).repeat(1, 4*(10+5)).view(-1)
                 self.optimizer.zero_grad()
-                # rand_id = torch.randperm(self.num_views, device='cuda')
-                if self.model_name == 'mvcnn':
+                if self.model_name == 'view-gcn':
                     out_data, F_score,F_score2= self.model(in_data)
                     out_data_ = torch.cat((F_score, F_score2), 1).view(-1, 40)
                     loss = self.loss_fn(out_data, target)+ self.loss_fn(out_data_, target_)
@@ -74,7 +71,6 @@ class ModelNetTrainer(object):
 
                 acc = correct_points.float() / results.size()[0]
                 self.writer.add_scalar('train/train_overall_acc', acc, i_acc + i + 1)
-                # if self.model_name == 'mvcnn':
                 print('lr = ', str(param_group['lr']))
                 loss.backward()
                 self.optimizer.step()
@@ -109,14 +105,13 @@ class ModelNetTrainer(object):
 
         for _, data in enumerate(self.val_loader, 0):
 
-            if self.model_name == 'mvcnn':
+            if self.model_name == 'view-gcn':
                 N, V, C, H, W = data[1].size()
                 in_data = Variable(data[1]).view(-1, C, H, W).cuda()
             else:  # 'svcnn'
                 in_data = Variable(data[1]).cuda()
             target = Variable(data[0]).cuda()
-            if self.model_name == 'mvcnn':
-                # out_data,F1,F2,features_full,features_1,features_2,features_0 = self.model(in_data)
+            if self.model_name == 'view-gcn':
                 out_data,F1,F2=self.model(in_data)
             else:
                 out_data = self.model(in_data)
