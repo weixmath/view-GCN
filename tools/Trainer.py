@@ -25,12 +25,16 @@ class ModelNetTrainer(object):
         i_acc = 0
         self.model.train()
         for epoch in range(n_epochs):
-            if epoch == 1:
-                for param_group in self.optimizer.param_groups:
-                    param_group['lr'] = lr
-            if epoch > 1:
-                for param_group in self.optimizer.param_groups:
-                    param_group['lr'] = param_group['lr'] * 0.5 * ( 1 + math.cos(epoch * math.pi / 15))
+            if self.model_name == 'view_gcn':
+                if epoch == 1:
+                    for param_group in self.optimizer.param_groups:
+                        param_group['lr'] = lr
+                if epoch > 1:
+                    for param_group in self.optimizer.param_groups:
+                        param_group['lr'] = param_group['lr'] * 0.5 * ( 1 + math.cos(epoch * math.pi / 15))
+            else:
+                if epoch > 0 and (epoch + 1) % 10 == 0
+                        param_group['lr'] = param_group['lr'] * 0.5
             # permute data for mvcnn
             rand_idx = np.random.permutation(int(len(self.train_loader.dataset.filepaths) / self.num_views))
             filepaths_new = []
@@ -45,7 +49,7 @@ class ModelNetTrainer(object):
             out_data = None
             in_data = None
             for i, data in enumerate(self.train_loader):
-                if epoch == 0:
+                if self.model_name == 'view-gcn' and epoch == 0:
                     for param_group in self.optimizer.param_groups:
                         param_group['lr'] = lr * ((i + 1) / (len(rand_idx) // 20))
                 if self.model_name == 'view-gcn':
@@ -71,7 +75,7 @@ class ModelNetTrainer(object):
 
                 acc = correct_points.float() / results.size()[0]
                 self.writer.add_scalar('train/train_overall_acc', acc, i_acc + i + 1)
-                print('lr = ', str(param_group['lr']))
+                #print('lr = ', str(param_group['lr']))
                 loss.backward()
                 self.optimizer.step()
                 log_str = 'epoch %d, step %d: train_loss %.3f; train_acc %.3f' % (epoch + 1, i + 1, loss, acc)
