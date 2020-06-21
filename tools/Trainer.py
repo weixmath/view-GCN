@@ -33,7 +33,7 @@ class ModelNetTrainer(object):
                     for param_group in self.optimizer.param_groups:
                         param_group['lr'] = param_group['lr'] * 0.5 * ( 1 + math.cos(epoch * math.pi / 15))
             else:
-                if epoch > 0 and (epoch + 1) % 10 == 0
+                if epoch > 0 and (epoch + 1) % 10 == 0:
                         param_group['lr'] = param_group['lr'] * 0.5
             # permute data for mvcnn
             rand_idx = np.random.permutation(int(len(self.train_loader.dataset.filepaths) / self.num_views))
