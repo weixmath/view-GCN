@@ -24,7 +24,7 @@ This code is tested on Python 3.6 and Pytorch 1.0 +
 
 First download the 20 views ModelNet40 dataset provided by [[rotationnet]](https://github.com/kanezaki/pytorch-rotationnet) and put it under `data`
 
-`$ wget https://data.airc.aist.go.jp/kanezaki.asako/data/modelnet40v2png_ori4.tar; tar xvf modelnet40v2png_ori4.tar`
+`https://drive.google.com/file/d/1Z8UphI48B9KUJ9zhIhcgXaRCzZPIlztb/view?usp=sharing`
 
 ### Command for training:
 
