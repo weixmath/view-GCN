@@ -26,6 +26,14 @@ First download the 20 views ModelNet40 dataset provided by [[rotationnet]](https
 
 `https://drive.google.com/file/d/1Z8UphI48B9KUJ9zhIhcgXaRCzZPIlztb/view?usp=sharing`
 
+Rotated-ModelNet40 dataset: ``
+
+Aligned-ScanObjectNN dataset: `https://drive.google.com/file/d/1ihR6Fv88-6FOVUWdfHVMfDbUrx2eIPpR/view?usp=sharing`
+
+Rotated-ScanObjectNN dataset: `https://drive.google.com/file/d/1GCwgrfbO_uO3Qh9UNPWRCuz2yr8UyRRT/view?usp=sharing`
+
+
+
 ### Command for training:
 
 `python train.py -name view-gcn -num_models 0 -weight_decay 0.001 -num_views 20 -cnn_name resnet18`
