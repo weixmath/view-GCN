@@ -1,6 +1,8 @@
-# Pytorch code for view-GCN [CVPR2020].
+# Pytorch code for view-GCN [CVPR2020], view-GCN++ [TPAMI 2023].
 
 Xin Wei, Ruixuan Yu and Jian Sun. **View-GCN: View-based Graph Convolutional Network for 3D Shape Analysis**. CVPR, accepted, 2020. [[pdf]](http://openaccess.thecvf.com/content_CVPR_2020/papers/Wei_View-GCN_View-Based_Graph_Convolutional_Network_for_3D_Shape_Analysis_CVPR_2020_paper.pdf) [[supp]](http://openaccess.thecvf.com/content_CVPR_2020/supplemental/Wei_View-GCN_View-Based_Graph_CVPR_2020_supplemental.pdf)
+
+Xin Wei, Ruixuan Yu and Jian Sun. **Learning view-based graph convolutional network for multi-view 3d shape analysis**. IEEE TPAMI, 2023.
 
 ## Citation
 If you find our work useful in your research, please consider citing:
@@ -14,6 +16,16 @@ year = {2020}
 }
 ```
 
+```
+@ARTICLE{9947327,
+  author={Wei, Xin and Yu, Ruixuan and Sun, Jian},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
+  title={Learning View-Based Graph Convolutional Network for Multi-View 3D Shape Analysis}, 
+  year={2023},
+  volume={45},
+  number={6},
+  pages={7525-7541}}
+```
 ## Training
 
 ### Requiement
